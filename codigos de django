@@ -1,0 +1,53 @@
+criar VM
+python -m venv venv
+
+ativar VM
+venv\scripts\activate
+
+Se o comando acima der erro, execute este comando: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+comando para rodar o servidor
+python manage.py runserver
+
+comando para parar o servidor
+Control + C 
+
+
+com o ambiente virtual ativo:
+
+instalar django
+pip install django
+
+criar projeto
+django-admin startproject projeto_final .
+
+detecta alterações nos modelos
+python manage.py makemigrations
+
+aplica as migrações no banco de dados
+python manage.py migrate
+
+comando para criar superusuario
+python manage.py createsuperuser
+
+criar app
+python manage.py startapp aluno
+
+TRABALHANDO COM APPS
+
+registrar o app no settings do projeto 
+
+INSTALLED_APPS = [
+'aluno ',
+]
+
+mapear url do app dentro do projeto
+ path('meu_app/', include('meu_app.urls')),
+
+url do app define qual view chamar
+urlpatterns = [
+    path('', home),
+]
+view do app executa rotina
+def home(request):
+    return render(request,'index.html')
